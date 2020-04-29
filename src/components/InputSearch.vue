@@ -22,6 +22,7 @@ $border: #a8a8a8;
   float: right;
 }
 input {
+  max-width: 170px;
   padding: 6px;
   outline: none;
   font-size: 17px;

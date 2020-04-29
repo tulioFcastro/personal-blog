@@ -4,8 +4,12 @@
       <placeholder class="mb-2" v-for="val in [5, 6, 7, 8]" :key="val" />
     </div>
     <div v-else class="table">
-      <input-search class="input-search" @searched="search" />
-      <custom-table :filteredPublications="filteredPublications" />
+      <div class="input-search">
+        <input-search @searched="search" />
+      </div>
+      <div class="custom-table">
+        <custom-table :filteredPublications="filteredPublications" />
+      </div>
     </div>
   </div>
 </template>
@@ -75,8 +79,12 @@ export default {
 
 <style lang="scss" scoped>
 .table {
+  display: flex;
+  flex-direction: column;
   width: 100%;
-  overflow: auto;
+  .custom-table {
+    overflow: auto;
+  }
 }
 .input-search {
   margin-bottom: 1rem;

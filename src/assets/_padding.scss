@@ -11,4 +11,7 @@
   @media only screen and (min-width: $screen-lg) {
     padding: 3rem;
   }
+  @media only screen and (min-width: $screen-xl) {
+    padding: 3rem 0;
+  }
 }

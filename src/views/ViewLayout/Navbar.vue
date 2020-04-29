@@ -1,10 +1,14 @@
 <template>
   <div class="topnav">
     <div class="container">
-      <router-link v-bind:class="{ active: activeRoute === 'Publication' }" :to="{ name: 'Publication' }" href="#home">
+      <router-link
+        class="router-link"
+        v-bind:class="{ active: activeRoute === 'Publication' }"
+        :to="{ name: 'Publication' }"
+      >
         Publications
       </router-link>
-      <router-link v-bind:class="{ active: activeRoute === 'Summary' }" :to="{ name: 'Summary' }" href="#home">
+      <router-link class="router-link" v-bind:class="{ active: activeRoute === 'Summary' }" :to="{ name: 'Summary' }">
         Summary
       </router-link>
     </div>
@@ -36,7 +40,7 @@ export default {
   justify-content: center;
 }
 
-.topnav a {
+.topnav .router-link {
   float: left;
   color: #f2f2f2;
   text-align: center;
@@ -46,12 +50,12 @@ export default {
   transition: all 0.5s;
 }
 
-.topnav a:hover {
+.topnav .router-link:hover {
   background-color: #ddd;
   color: black;
 }
 
-.topnav a.active {
+.topnav .router-link.active {
   background-color: #ff305c;
   color: white;
 }

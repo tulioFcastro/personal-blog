@@ -1,8 +1,8 @@
 <template>
   <section class="page">
     <navbar />
-    <div class="page-content custom-padding container">
-      <router-view />
+    <div class="page-content container">
+      <router-view class="custom-padding" />
     </div>
   </section>
 </template>
