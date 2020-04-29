@@ -31,7 +31,7 @@ export default {
 .card {
   padding: 1rem 0.5rem;
   border: 2px solid #ced4da;
-  border-radius: 0.2rem;
+  border-radius: 0.25rem;
   box-shadow: 0 0 0.625rem rgba(38, 38, 38, 0.075);
   display: flex;
   flex-direction: column;

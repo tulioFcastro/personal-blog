@@ -30,6 +30,8 @@ input {
   border-left: 2px solid $border;
   border-top: 2px solid $border;
   border-bottom: 2px solid $border;
+  border-top-left-radius: 0.25rem;
+  border-bottom-left-radius: 0.25rem;
 }
 .search-container button {
   float: right;
@@ -41,6 +43,10 @@ input {
   border-top: 2px solid $border;
   border-right: 2px solid $border;
   border-bottom: 2px solid $border;
+
+  border-top-right-radius: 0.25rem;
+  border-bottom-right-radius: 0.25rem;
+  transition: all 0.5s;
   cursor: pointer;
 }
 
