@@ -1,0 +1,14 @@
+@import './variables/media_queries';
+
+.custom-padding {
+  padding: 1rem;
+  @media only screen and (min-width: $screen-sm) {
+    padding: 1.5rem;
+  }
+  @media only screen and (min-width: $screen-md) {
+    padding: 2rem;
+  }
+  @media only screen and (min-width: $screen-lg) {
+    padding: 3rem;
+  }
+}
