@@ -1,6 +1,6 @@
 <template>
   <section>
-    <div v-if="isLoading">
+    <div v-if="isLoading.length > 0">
       <placeholder class="mb-2" v-for="val in [1, 2, 3, 4]" :key="val" />
     </div>
     <card v-else class="mb-2" v-for="(pub, index) in publications" :publication="pub" :key="index" />
@@ -24,7 +24,7 @@ export default {
   },
   data() {
     return {
-      isLoading: false,
+      isLoading: [],
     };
   },
   methods: {
@@ -33,9 +33,10 @@ export default {
   },
   created() {
     if (this.publications.length === 0) {
-      this.isLoading = true;
-      this.getPublications().finally(() => (this.isLoading = false));
-      this.getAuthors().finally(() => (this.isLoading = false));
+      this.isLoading.push(true);
+      this.isLoading.push(true);
+      this.getPublications().finally(() => this.isLoading.pop());
+      this.getAuthors().finally(() => this.isLoading.pop());
     }
   },
 };

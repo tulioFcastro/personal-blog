@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div v-if="isLoading">
+    <div v-if="isLoading.length > 0">
       <placeholder class="mb-2" v-for="val in [5, 6, 7, 8]" :key="val" />
     </div>
     <div v-else class="table">
@@ -37,7 +37,7 @@ export default {
   },
   data() {
     return {
-      isLoading: false,
+      isLoading: [],
       filteredPublications: null,
     };
   },
@@ -64,9 +64,10 @@ export default {
   },
   created() {
     if (this.publications.length === 0) {
-      this.isLoading = true;
-      this.getPublications().finally(() => (this.isLoading = false));
-      this.getAuthors().finally(() => (this.isLoading = false));
+      this.isLoading.push(true);
+      this.isLoading.push(true);
+      this.getPublications().finally(() => this.isLoading.pop());
+      this.getAuthors().finally(() => this.isLoading.pop());
     } else this.filteredPublications = [...this.publications];
   },
 };
