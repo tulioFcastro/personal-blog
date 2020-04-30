@@ -1,5 +1,4 @@
 import actions from './actions';
-import getters from './getters';
 import mutations from './mutations';
 
 export default {
@@ -8,6 +7,6 @@ export default {
     items: [],
   },
   actions,
-  getters,
+  getters: {},
   mutations,
 };

@@ -11,10 +11,9 @@
 
 <script>
 export default {
-  data() {
-    return {
-      selected: 'list',
-      style: {
+  computed: {
+    style() {
+      return {
         grid: {
           div: {
             display: 'flex',
@@ -29,12 +28,17 @@ export default {
         list: {
           display: 'inline',
         },
-      },
+      };
+    },
+  },
+  data() {
+    return {
+      selected: 'list',
     };
   },
   methods: {
     select(type) {
-      this.$emit('click', this.style[type]);
+      this.$emit('clicked', this.style[type]);
       this.selected = type;
     },
   },

@@ -4,7 +4,7 @@
       <placeholder class="mb-2" v-for="val in [1, 2, 3, 4]" :key="val" />
     </div>
     <div v-else>
-      <display-options @click="changeStyle" />
+      <display-options @clicked="changeStyle" />
       <div :style="style.div">
         <card class="mb-2" :style="style.card" v-for="(pub, index) in publications" :publication="pub" :key="index" />
       </div>
@@ -42,7 +42,6 @@ export default {
     ...mapActions('publication', ['getPublications']),
     ...mapActions('author', ['getAuthors']),
     changeStyle(style) {
-      this.style.selected = style.selected;
       this.style.card = style.card;
       this.style.div = style.div;
     },
