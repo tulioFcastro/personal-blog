@@ -3,18 +3,25 @@
     <div v-if="isLoading.length > 0">
       <placeholder class="mb-2" v-for="val in [1, 2, 3, 4]" :key="val" />
     </div>
-    <card v-else class="mb-2" v-for="(pub, index) in publications" :publication="pub" :key="index" />
+    <div v-else>
+      <display-options @click="changeStyle" />
+      <div :style="style.div">
+        <card class="mb-2" :style="style.card" v-for="(pub, index) in publications" :publication="pub" :key="index" />
+      </div>
+    </div>
   </section>
 </template>
 
 <script>
 import { mapActions, mapState } from 'vuex';
 import Card from './components/Card';
+import DisplayOptions from './components/DisplayOptions';
 import Placeholder from '@/components/Placeholder';
 
 export default {
   components: {
     Card,
+    DisplayOptions,
     Placeholder,
   },
   computed: {
@@ -25,11 +32,20 @@ export default {
   data() {
     return {
       isLoading: [],
+      style: {
+        card: {},
+        div: {},
+      },
     };
   },
   methods: {
     ...mapActions('publication', ['getPublications']),
     ...mapActions('author', ['getAuthors']),
+    changeStyle(style) {
+      this.style.selected = style.selected;
+      this.style.card = style.card;
+      this.style.div = style.div;
+    },
   },
   created() {
     if (this.publications.length === 0) {
