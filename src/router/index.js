@@ -22,6 +22,10 @@ const routes = [
       },
     ],
   },
+  {
+    path: '*',
+    redirect: { name: 'Publication' },
+  },
 ];
 
 const router = new VueRouter({
